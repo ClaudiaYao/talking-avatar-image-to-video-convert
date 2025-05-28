@@ -6,4 +6,4 @@ This simple repo provides the multimodel agent. User provides an avatar image an
 - Backend: FastAPI
 - Model used: Wav2Lip (https://github.com/Rudrabha/Wav2Lip)
 
-<img src="/demo/demo.png" alt="Demo page" width="200"/>
+<img src="/demo/demo.png" alt="Demo page" width="400"/>
