@@ -9,14 +9,15 @@ import uuid
 from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 import sys 
+import uvicorn
 
 
 current_file = Path(__file__).resolve()
 parent_dir = current_file.parent
-print(parent_dir)
 
 app = FastAPI()
-
+host = "localhost"
+port = 8000
 
 # Allow frontend to access backend
 app.add_middleware(
@@ -76,3 +77,7 @@ async def generate_video(text: str = Form(...), image: UploadFile = File(...)):
             return FileResponse(f"{result_dir}/{file}", media_type="video/mp4")
 
     return JSONResponse(status_code=404, content={"error": "Video generation failed."})
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host=host, port=port)
