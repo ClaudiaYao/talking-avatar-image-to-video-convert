@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: avatar-frontend-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: avatar-frontend
+  template:
+    metadata:
+      labels:
+        app: avatar-frontend
+    spec:
+      containers:
+        - name: avatar-frontend-container
+          image: avatar-frontend:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80

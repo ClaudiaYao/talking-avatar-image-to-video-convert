@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: avatar-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: avatar
+  template:
+    metadata:
+      labels:
+        app: avatar
+    spec:
+      containers:
+        - name: avatar-container
+          image: avatar_fullstack
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000

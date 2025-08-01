@@ -1,0 +1,15 @@
+fastapi
+gTTS
+iou
+librosa
+opencv_contrib_python
+opencv_python
+opencv_python_headless
+scipy
+torch
+torchvision
+numba
+uvicorn
+python-multipart
+tqdm
+ffmpeg
