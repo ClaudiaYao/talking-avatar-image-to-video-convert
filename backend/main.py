@@ -16,6 +16,7 @@ import time
 
 current_file = Path(__file__).resolve()
 parent_dir = current_file.parent
+print(parent_dir)
 
 app = FastAPI()
 host = "localhost"
@@ -38,7 +39,9 @@ app.add_middleware(
 @app.post("/generate-talking-avatar/")
 async def generate_video(text: str = Form(...), image: UploadFile = File(...)):
     session_id = str(uuid.uuid4())
-    os.makedirs(f"tmp/{session_id}", exist_ok=True)
+    
+    os.makedirs(f"{parent_dir}/tmp", exist_ok=True)
+    os.makedirs(f"{parent_dir}/tmp/{session_id}", exist_ok=True)
 
     # Save uploaded image
     image_path = f"{parent_dir}/tmp/{session_id}/avatar.jpg"
